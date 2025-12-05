@@ -173,7 +173,13 @@
     }
 
     @media (max-width: 800px) {
-      main { grid-template-columns: 1fr; }
+      main { 
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+      }
+      main > div:first-child { order: 2; }  /* What I do + Past impact */
+      main > div:last-child { order: 1; }   /* About + Contact */
       header { flex-direction: column; align-items: flex-start; }
       .contact-meta { text-align: left; }
     }
