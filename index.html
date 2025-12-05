@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Robot Consulting – App, Data & Platform Engineering</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Happy Robot Consulting – application development, data engineering, integrations, and data compliance."
+  />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://happyrobot.work/" />
+  <meta property="og:title" content="Happy Robot Consulting – App, Data & Platform Engineering" />
+  <meta property="og:description" content="I build the systems your team needs but doesn't have time to build. Application development, data engineering, integrations, and data compliance by Selena Flannery." />
+  <meta property="og:image" content="https://happyrobot.work/assets/happy-robot.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Happy Robot Consulting – App, Data & Platform Engineering" />
+  <meta name="twitter:description" content="I build the systems your team needs but doesn't have time to build. Application development, data engineering, integrations, and data compliance." />
+  <meta name="twitter:image" content="https://happyrobot.work/assets/happy-robot.png" />
+
+  <style>
+    /* BRAND COLORS */
+    :root {
+      --bg: #f3f4f6;            /* page background */
+      --fg: #111827;            /* primary text */
+      --accent: #ff3d9b;        /* Happy Pink – primary CTA */
+      --accent-soft: #fee7f3;   /* light pink background */
+      --accent-alt: #3aa7ff;    /* Robot Blue – secondary accent */
+      --card-bg: #ffffff;       /* cards and hero background */
+      --muted: #4b5563;         /* secondary text */
+      --border: #e5e7eb;        /* card borders */
+      --radius-lg: 16px;
+      --radius-sm: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+    }
+
+    .logo-circle img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-meta {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-meta a {
+      color: var(--accent-alt);
+      text-decoration: none;
+    }
+
+    .contact-meta a:hover { text-decoration: underline; }
+
+    .hero {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 24px 24px 28px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+
+    .hero-title {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .hero-cta:hover { opacity: 0.90; }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.35fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 800px) {
+      main { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .contact-meta { text-align: left; }
+    }
+
+    section { margin-bottom: 24px; }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .section-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px 18px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .card p + p {
+      margin-top: 10px;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+    }
+
+    li + li { margin-top: 4px; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 0.78rem;
+    }
+
+    .pill-soft {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .contact-box p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-box code {
+      font-size: 0.86rem;
+      background: var(--bg);
+      padding: 2px 4px;
+      border-radius: var(--radius-sm);
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo-area">
+        <div class="logo-circle">
+          <img src="assets/happy-robot.png" alt="Happy Robot Mascot" />
+        </div>
+        <div class="brand-text">
+          <h1>Happy Robot Consulting</h1>
+          <p>App, Data & Platform Engineering by Selena Flannery</p>
+        </div>
+      </div>
+
+      <div class="contact-meta">
+        <div><a href="mailto:selena@happyrobot.work">selena@happyrobot.work</a></div>
+        <div>
+          <a href="https://www.linkedin.com/in/selenaflannery/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          &nbsp;•&nbsp;
+          <a href="https://github.com/SeleniumK" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <div>Seattle · Remote Worldwide</div>
+      </div>
+    </header>
+
+    <!-- HERO PANEL -->
+    <div class="hero">
+      <div class="hero-title">Apps & infrastructure that run like a happy robot, not a frantic team.</div>
+
+      <div class="hero-subtitle">
+        I build the systems your team needs but doesn't have time to build.
+      </div>
+
+      <div class="hero-pills">
+        <span class="pill">App development</span>
+        <span class="pill">Data engineering</span>
+        <span class="pill">Integrations</span>
+        <span class="pill">Data compliance</span>
+      </div>
+
+      <a class="hero-cta"
+         href="mailto:selena@happyrobot.work?subject=Happy%20Robot%20Consulting%20Inquiry">
+        Get in touch →
+      </a>
+    </div>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <div>
+        <section>
+          <h2>What I do</h2>
+          <p class="section-note">
+            I help teams ship faster, modernize safely, and reduce operational stress across applications, data, integrations, and compliance.
+          </p>
+
+          <div class="card">
+            <h3>Application development</h3>
+            <p class="tagline">Modern APIs, internal tools, and automation in Python.</p>
+            <ul>
+              <li>REST/JSON APIs & backend services</li>
+              <li>Event-driven systems (Kafka, Flink, Temporal)</li>
+              <li>Internal tools & operational automation</li>
+              <li>Performance tuning & modernization</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Data engineering</h3>
+            <p class="tagline">Warehouse design, data modeling, and pipelines that scale.</p>
+            <ul>
+              <li>Data pipelines with Databricks, Airflow, CDC</li>
+              <li>Warehouse architecture & lifecycle strategy</li>
+              <li>Postgres scaling, optimization & fleet management</li>
+              <li>Monitoring & cost optimization</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Integrations</h3>
+            <p class="tagline">Connecting your systems so data moves cleanly and reliably.</p>
+            <ul>
+              <li>Salesforce & CRM integrations</li>
+              <li>APIs between apps, warehouses, and vendors</li>
+              <li>Operational reporting & dashboards</li>
+              <li>Glue code between internal and external systems</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Data compliance</h3>
+            <p class="tagline">Privacy-aware pipelines and architecture that avoid surprises.</p>
+            <ul>
+              <li>Data mapping & automated classification</li>
+              <li>Deletion & export workflows (right-to-erasure, access requests)</li>
+              <li>Compliance-aligned architecture & documentation</li>
+              <li>Team enablement & governance best practices</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Past impact</h2>
+          <ul>
+            <li><strong>Saved $30K/month</strong> via Postgres + Kubernetes redesign.</li>
+            <li><strong>10–50× faster</strong> event processing after platform rebuild.</li>
+            <li>Automated classification of <strong>10,000+ data points</strong> for compliance efforts.</li>
+            <li>Cut vendor/infra spend by <strong>$400K/year</strong> through optimization.</li>
+            <li>Reduced 30s API endpoints to <strong>0.7s</strong> through redesign.</li>
+            <li><strong>Led Python 2 → 3 migration</strong> across the engineering org.</li>
+            <li><strong>Conference speaker</strong> at PGCon (Postgres) and PyCascades (Python).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <section>
+          <h2>About</h2>
+          <div class="card">
+            <p>
+              I'm Selena Flannery, a senior engineer with 10+ years building
+              applications, infrastructure, and data systems at Brex, Patreon,
+              Spotify, Coffee Meets Bagel, and OfferUp.
+            </p>
+            <p>
+              I help teams build what they need and find what they're missing.
+            </p>
+
+            <p>Based in Seattle · Working with teams across North America and Europe</p>
+
+            <div class="pill-row">
+              <span class="pill-soft">Python</span>
+              <span class="pill-soft">Postgres</span>
+              <span class="pill-soft">Kafka & Flink</span>
+              <span class="pill-soft">Kubernetes</span>
+              <span class="pill-soft">Terraform</span>
+              <span class="pill-soft">Databricks</span>
+              <span class="pill-soft">Integrations</span>
+              <span class="pill-soft">Data compliance</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>How we can work together</h2>
+          <div class="card">
+            <h3>Engagement options</h3>
+            <ul>
+              <li><strong>Advisory / hourly:</strong> architecture, debugging, second opinions.</li>
+              <li><strong>Fixed-scope projects:</strong> apps, pipelines, integrations, compliance workflows.</li>
+              <li><strong>Fractional engineering:</strong> 1–3 days/week leading app, data, or platform initiatives.</li>
+            </ul>
+          </div>
+
+          <div class="card contact-box">
+            <h3>Contact</h3>
+            <p>Email: <code>selena@happyrobot.work</code></p>
+            <p>
+              Tell me what you're working on and I'll reply with next steps.
+            </p>
+            <p>
+      
+              <a href="mailto:selena@happyrobot.work?subject=Happy%20Robot%20Consulting%20Inquiry">
+                Get in touch →
+              </a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Happy Robot Consulting. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
